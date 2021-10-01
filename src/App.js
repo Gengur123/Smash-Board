@@ -1,6 +1,7 @@
 import React from 'react';
 import PlayingBlock from './components/PlayingBlock';
 import StandbyBlock from './components/StandbyBlock';
+import DqBlock from './components/DqBlock';
 
 function App() {
 
@@ -8,6 +9,7 @@ function App() {
     <React.Fragment>
       <StandbyBlock/>
       <PlayingBlock/>
+      <DqBlock/>
     </React.Fragment>
     
   );
