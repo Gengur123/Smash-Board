@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function App() {
-  const [tournaments, setTournaments] = useState([]);
+  const [players, setPlayers] = useState([]);
 
   useEffect(() => {
     axios({
@@ -11,27 +11,54 @@ function App() {
       method: 'post',
       data: {
         query: `
-            query TournamentsByCountry {
-              tournaments(query: {
-                perPage: 50
-                filter: {
-                  countryCode: "US"
-                  addrState: "OR"
-                  upcoming: false
-                }
-              }) {
-                nodes {
-                  id
-                  name
+          query query2 {
+            tournament(id: 320802) {
+              events {
+                phases {
+                  sets {
+                    nodes {
+                      slots {
+                        entrant {
+                          name
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
+          }
           `
       }
     }).then((result) => {
-      console.log(result.data.data.tournaments.nodes)
-      setTournaments(result.data.data.tournaments.nodes)
-      console.log(tournaments)
+      const tempPlayers = []
+      // console.log(result.data.data)
+      // console.log(result.data.data.tournament)
+      // console.log(result.data.data.tournament.events)
+      for (let i = 0; i < result.data.data.tournament.events.length; i++){
+        let event = result.data.data.tournament.events[i]
+        // console.log(event)
+        // console.log(event.phases)
+        for (let phase of event.phases){
+          // console.log(phase.sets)
+          for (let nodes of phase.sets.nodes){
+            // console.log(nodes)
+            // console.log(nodes.slots)
+              for (let slot of nodes.slots){
+                if (slot.entrant){
+                  tempPlayers.push(slot.entrant.name)
+                  // console.log(slot.entrant.name)
+                }
+              }
+
+          }
+        }
+        
+      // setTournaments(result.data.data.tournaments.nodes)
+      // console.log(tournaments)
+      }
+      setPlayers(tempPlayers)
+      console.log(tempPlayers)
     });
   },[]);
 
@@ -41,9 +68,8 @@ function App() {
   return (
     <div className="App">
       {
-        tournaments.map((tournament ) => {
-          (<p>{tournament.name}</p>)
-
+        players.map((player ) => {
+        return (<p>{player}</p>)
         })
       }
     </div>
