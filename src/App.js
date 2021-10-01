@@ -32,33 +32,19 @@ function App() {
       }
     }).then((result) => {
       const tempPlayers = []
-      // console.log(result.data.data)
-      // console.log(result.data.data.tournament)
-      // console.log(result.data.data.tournament.events)
       for (let i = 0; i < result.data.data.tournament.events.length; i++){
         let event = result.data.data.tournament.events[i]
-        // console.log(event)
-        // console.log(event.phases)
         for (let phase of event.phases){
-          // console.log(phase.sets)
           for (let nodes of phase.sets.nodes){
-            // console.log(nodes)
-            // console.log(nodes.slots)
               for (let slot of nodes.slots){
                 if (slot.entrant){
                   tempPlayers.push(slot.entrant.name)
-                  // console.log(slot.entrant.name)
                 }
               }
-
           }
         }
-        
-      // setTournaments(result.data.data.tournaments.nodes)
-      // console.log(tournaments)
       }
       setPlayers(tempPlayers)
-      console.log(tempPlayers)
     });
   },[]);
 
