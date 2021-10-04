@@ -1,4 +1,5 @@
 <img src="src/img/Diagram.png" alt="Diagram">
+Working on internships :D
 
 # Getting Started with Create React App
 
