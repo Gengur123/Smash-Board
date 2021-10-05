@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import MatchBlock from './MatchBlock.jsx';
 
 function StandbyBlock () {
 
@@ -38,12 +39,16 @@ function StandbyBlock () {
       let event = result.data.data.tournament.events[0]
       console.log(event)
       for (let node of event.sets.nodes){
+          let temp = []
           for (let slot of node.slots){
             if (slot.entrant){
-              tempPlayers.push(slot.entrant.name)
+              temp.push(slot.entrant.name)
             }
           }
+          console.log(temp)
+          tempPlayers.push(temp)
       }
+      console.log(tempPlayers)
       setPlayers(tempPlayers)
     });
   },[]);
@@ -53,9 +58,13 @@ function StandbyBlock () {
 
   return (
     <div className="App">
+      <h1>Standby</h1>
       {
         players.map((player ) => {
-        return (<p>{player}</p>)
+        return (<MatchBlock
+          p1={player[0]}
+          p2={player[1]}
+        />)
         })
       }
     </div>
