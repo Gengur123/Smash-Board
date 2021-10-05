@@ -3,7 +3,9 @@ import React from 'react'
 function DqBlock () {
 
   return (
-    <div>DqBlock</div>
+    <div className="App" id="dq">
+      <h1>Disqualify Warning</h1>
+    </div>
   )
 }
 

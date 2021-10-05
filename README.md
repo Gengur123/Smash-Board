@@ -1,4 +1,4 @@
-# Oregon Smash Dashboard
+# Oregon Smash Board
 
 #### By _**Arthur Lee**_
 
