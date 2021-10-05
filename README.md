@@ -1,5 +1,29 @@
+# Oregon Smash Dashboard
+
+#### By _**Arthur Lee**_
+
+## Description
+
+This project is a single page website application that takes smash.gg API to create a better viewing experience for the players particating in a tournament. With features that can move players around in different columns to create a better player experience when going to larger and more noisier event.
+
+## Smash.gg API key
+- To get started using this application, you will need an API key.
+- Head over to https://developer.smash.gg/docs/authentication and follow intructions from the website to obtain it.
+- Save that API key somewhere on a note pad then follow instructions below.
+
+## Setup/Installation Requirements
+
+1. Clone this repository onto your computer:
+2. Navigate into the `smash-capstone` directory, and open in Visual Studio Code or preferred text editor
+3. Run `npm install` to install the dependencies
+4. Create a .env file in your root directory.
+5. Type `REACT_APP_API_KEY=(your API key)` without the ( )
+6. Run `npm run start` 
+7. Open a browser and navigate to `localhost:3000` to view the app
+
+## Component Tree
 <img src="src/img/Diagram.png" alt="Diagram">
-intern
+
 
 # Getting Started with Create React App
 
