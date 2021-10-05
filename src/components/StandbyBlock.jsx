@@ -18,7 +18,7 @@ function StandbyBlock () {
             events {
               sets(
                 page: 1,
-                perPage: 5
+                perPage: 10
               ){
                 nodes{
                   slots{
@@ -57,7 +57,7 @@ function StandbyBlock () {
   
 
   return (
-    <div className="App">
+    <div className="App" id="standby">
       <h1>Standby</h1>
       {
         players.map((player ) => {
