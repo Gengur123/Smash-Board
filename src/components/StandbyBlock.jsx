@@ -12,38 +12,37 @@ function StandbyBlock () {
       method: 'post',
       data: {
         query: `
-          query query2 {
-            tournament(id: 320802) {
-              events {
-                phases {
-                  sets {
-                    nodes {
-                      slots {
-                        entrant {
-                          name
-                        }
-                      }
+        query query2 {
+          tournament(id: 320802) {
+            events {
+              sets(
+                page: 1,
+                perPage: 5
+              ){
+                nodes{
+                  slots{
+                    entrant{
+                      name
                     }
                   }
                 }
               }
             }
           }
+        }
           `
       }
     }).then((result) => {
       const tempPlayers = []
-      for (let i = 0; i < result.data.data.tournament.events.length; i++){
-        let event = result.data.data.tournament.events[i]
-        for (let phase of event.phases){
-          for (let nodes of phase.sets.nodes){
-              for (let slot of nodes.slots){
-                if (slot.entrant){
-                  tempPlayers.push(slot.entrant.name)
-                }
-              }
+
+      let event = result.data.data.tournament.events[0]
+      console.log(event)
+      for (let node of event.sets.nodes){
+          for (let slot of node.slots){
+            if (slot.entrant){
+              tempPlayers.push(slot.entrant.name)
+            }
           }
-        }
       }
       setPlayers(tempPlayers)
     });

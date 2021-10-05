@@ -7,9 +7,15 @@ function App() {
 
   return (
     <React.Fragment>
+      <div>
       <StandbyBlock/>
+      </div>
+      <div>
       <PlayingBlock/>
+      </div>
+      <div>
       <DqBlock/>
+      </div>
     </React.Fragment>
     
   );
