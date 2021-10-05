@@ -5,10 +5,12 @@ import './NavBarBlock.css'
 function NavBarBlock () {
 
   return (
-    <div>
-      <img src={smash} alt="Smash"/>
-      NavBarBlock
-    </div>
+    <nav>
+      <div class="sort">
+        <img src={smash} alt="Smash"/>
+        <h1>Oregon Smash Dashboard</h1>
+      </div>
+    </nav>
   )
 }
 
