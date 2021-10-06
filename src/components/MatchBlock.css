@@ -17,7 +17,7 @@ button{
   text-transform:uppercase;
   font-family:'Roboto',sans-serif;
   font-weight:300;
-  color:red;
+  color:black;
   text-align:center;
   transition: all 0.15s;
   flex: auto;
