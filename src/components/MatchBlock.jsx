@@ -4,7 +4,7 @@ import './MatchBlock.css'
 
 function MatchBlock (props) {
     const [matchStatus, setMatchStatus] = useState(props.status);
-    const [block, setBlock] = useState(props.block);
+    const [block] = useState(props.block);
     const [statusFunction, setStatusFunction] = useState(props.statusFunc)
     const [idx, setIdx] = useState(props.idx)
 
@@ -38,7 +38,7 @@ function MatchBlock (props) {
                     <br/>
                 <button onClick={startMatch}>START MATCH</button>
                     
-                <button onClick={dqMatch}>DISQUALIFIED</button>
+                <button onClick={dqMatch}>DQ Warning</button>
                 </div>
             )
         }

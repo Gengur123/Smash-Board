@@ -12,7 +12,7 @@ function DqBlock (props) {
 
   return (
     <div className="App" id="standby">
-      <h1>DQ</h1>
+      <h1>DQ Warning</h1>
       {
         standbyPlayers.map((player ) => {
         return (<MatchBlock
