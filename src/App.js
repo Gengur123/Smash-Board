@@ -65,10 +65,10 @@ function App() {
         <StandbyBlock players={players}/>
         </div>
         <div class="column">
-        <PlayingBlock/>
+        <PlayingBlock players={players}/>
         </div>
         <div class="column">
-        <DqBlock/>
+        <DqBlock players={players}/>
         </div>
       </div>
     </React.Fragment>

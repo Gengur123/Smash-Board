@@ -3,9 +3,6 @@ import MatchBlock from './MatchBlock.jsx';
 
 
 function StandbyBlock (props) {
-
-  console.log("PLAYER LIST APPJS")
-  console.log(props.players)
   const [standbyPlayers, setStandbyPlayers] = useState(props.players);
 
   useEffect(() => {
@@ -20,6 +17,8 @@ function StandbyBlock (props) {
         return (<MatchBlock
           p1={player[0]}
           p2={player[1]}
+          block={'S'}
+          status={player[2]}
         />)
         })
       }
