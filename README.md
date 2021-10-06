@@ -4,7 +4,7 @@
 
 ## Description
 
-This project is a single page website application that takes smash.gg API to create a better viewing experience for the players particating in a tournament. With features that can move players around in different columns to create a better player experience when going to larger and more noisier event.
+This project is a single page website application that takes smash.gg API to create a better viewing experience for the players particating in a tournament. With features that can move players around in different columns to create a better player experience when going to larger and more noisier event. Players can easily find out whether or not they are going to be playing soon without having to ask the Tournament Organizers.
 
 ## Smash.gg API key
 - To get started using this application, you will need an API key.
