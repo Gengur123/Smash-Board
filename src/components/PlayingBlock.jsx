@@ -3,14 +3,16 @@ import MatchBlock from './MatchBlock';
 
 function PlayingBlock (props) {
   const [standbyPlayers, setStandbyPlayers] = useState(props.players);
+  const [statusFunction, setStatusFunction] = useState(props.statusFunc);
 
   useEffect(() => {
-    setStandbyPlayers(props.players);
-  }, [props.players])
-  
+    setStandbyPlayers(props.players)
+    setStatusFunction(props.statusFunc);
+}, [props.players, props.statusFunc])
+
   return (
     <div className="App" id="standby">
-      <h1>Standby</h1>
+      <h1>Playing</h1>
       {
         standbyPlayers.map((player ) => {
         return (<MatchBlock
@@ -18,6 +20,8 @@ function PlayingBlock (props) {
           p2={player[1]}
           block={'P'}
           status={player[2]}
+          statusFunc={statusFunction}
+          idx={player[3]}
         />)
         })
       }

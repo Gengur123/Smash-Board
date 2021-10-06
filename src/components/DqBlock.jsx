@@ -2,16 +2,17 @@ import React, { useState, useEffect} from 'react';
 import MatchBlock from './MatchBlock';
 
 function DqBlock (props) {
-
   const [standbyPlayers, setStandbyPlayers] = useState(props.players);
+  const [statusFunction, setStatusFunction] = useState(props.statusFunc);
 
   useEffect(() => {
-    setStandbyPlayers(props.players);
-  }, [props.players])
-  
+    setStandbyPlayers(props.players)
+    setStatusFunction(props.statusFunc);
+}, [props.players, props.statusFunc])
+
   return (
     <div className="App" id="standby">
-      <h1>Standby</h1>
+      <h1>DQ</h1>
       {
         standbyPlayers.map((player ) => {
         return (<MatchBlock
@@ -19,6 +20,8 @@ function DqBlock (props) {
           p2={player[1]}
           block={'D'}
           status={player[2]}
+          statusFunc={statusFunction}
+          idx={player[3]}
         />)
         })
       }

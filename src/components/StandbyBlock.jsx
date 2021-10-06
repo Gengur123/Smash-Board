@@ -4,11 +4,13 @@ import MatchBlock from './MatchBlock.jsx';
 
 function StandbyBlock (props) {
   const [standbyPlayers, setStandbyPlayers] = useState(props.players);
+  const [statusFunction, setStatusFunction] = useState(props.statusFunc);
 
   useEffect(() => {
-    setStandbyPlayers(props.players);
-  }, [props.players])
-  
+    setStandbyPlayers(props.players)
+    setStatusFunction(props.statusFunc);
+}, [props.players, props.statusFunc])
+
   return (
     <div className="App" id="standby">
       <h1>Standby</h1>
@@ -19,6 +21,8 @@ function StandbyBlock (props) {
           p2={player[1]}
           block={'S'}
           status={player[2]}
+          statusFunc={statusFunction}
+          idx={player[3]}
         />)
         })
       }

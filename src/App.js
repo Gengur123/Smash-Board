@@ -8,6 +8,7 @@ import axios from 'axios';
 function App() {
 
   const [players, setPlayers] = useState([]);
+  const [change, setChange] = useState(0);
 
   useEffect(() => {
     axios({
@@ -40,6 +41,7 @@ function App() {
       const tempPlayers = []
 
       let event = result.data.data.tournament.events[0]
+      let count = 0;
       console.log(event)
       for (let node of event.sets.nodes){
           let temp = []
@@ -49,6 +51,8 @@ function App() {
             }
           }
           temp.push('S')
+          temp.push(count)
+          count++;
           console.log(temp)
           tempPlayers.push(temp)
       }
@@ -56,19 +60,35 @@ function App() {
       setPlayers(tempPlayers)
     });
   },[]);
-  
+
+  useEffect(() => {
+    console.log("PLAYERS HAVE CHANGED")
+  }, [change])
+
+  let updateStatus = (idx, status) => {
+    let p = players;
+    console.log("UPDATE STATUS FUNCTION")
+    console.log("Values: idx=" + idx + ", status=" + status)
+    if(p.length !== 0){
+      p[idx][2] = status;
+      setPlayers(p);
+      console.log(players)
+      setChange(change + 1)
+    }
+  }
+
   return (
     <React.Fragment>
       <NavBarBlock/>
       <div class="row">
         <div class="column">
-        <StandbyBlock players={players}/>
+        <StandbyBlock players={players} statusFunc={() => () => updateStatus}/>
         </div>
         <div class="column">
-        <PlayingBlock players={players}/>
+        <PlayingBlock players={players} statusFunc={() => () => updateStatus}/>
         </div>
         <div class="column">
-        <DqBlock players={players}/>
+        <DqBlock players={players} statusFunc={() => () => updateStatus}/>
         </div>
       </div>
     </React.Fragment>
