@@ -22,7 +22,7 @@ function App() {
             events {
               sets(
                 page: 1,
-                perPage: 10
+                perPage: 30
               ){
                 nodes{
                   slots{
